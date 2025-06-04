@@ -1,0 +1,176 @@
+[14-Dec-2024 15:45:47 UTC] WordPress database error Table 'alaminrobin_wp271.wp3y_actionscheduler_actions' doesn't exist for query SELECT a.action_id FROM wp3y_actionscheduler_actions a WHERE 1=1 AND a.status IN ('complete') AND a.last_attempt_gmt <= '2024-11-13 15:45:47' LIMIT 0, 20 made by do_action_ref_array('action_scheduler_run_queue'), WP_Hook->do_action, WP_Hook->apply_filters, ActionScheduler_QueueRunner->run, ActionScheduler_Abstract_QueueRunner->run_cleanup, ActionScheduler_QueueCleaner->clean, ActionScheduler_QueueCleaner->delete_old_actions, ActionScheduler_QueueCleaner->clean_actions, ActionScheduler_DBStore->query_actions
+[14-Dec-2024 15:45:47 UTC] WordPress database error Table 'alaminrobin_wp271.wp3y_actionscheduler_actions' doesn't exist for query SELECT a.action_id FROM wp3y_actionscheduler_actions a WHERE 1=1 AND a.status IN ('canceled') AND a.last_attempt_gmt <= '2024-11-13 15:45:47' LIMIT 0, 20 made by do_action_ref_array('action_scheduler_run_queue'), WP_Hook->do_action, WP_Hook->apply_filters, ActionScheduler_QueueRunner->run, ActionScheduler_Abstract_QueueRunner->run_cleanup, ActionScheduler_QueueCleaner->clean, ActionScheduler_QueueCleaner->delete_old_actions, ActionScheduler_QueueCleaner->clean_actions, ActionScheduler_DBStore->query_actions
+[14-Dec-2024 15:45:47 UTC] WordPress database error Table 'alaminrobin_wp271.wp3y_actionscheduler_actions' doesn't exist for query SELECT a.action_id FROM wp3y_actionscheduler_actions a WHERE 1=1 AND a.status IN ('pending') AND a.last_attempt_gmt <= '2024-12-14 15:40:47' AND a.claim_id != 0 LIMIT 0, 20 made by do_action_ref_array('action_scheduler_run_queue'), WP_Hook->do_action, WP_Hook->apply_filters, ActionScheduler_QueueRunner->run, ActionScheduler_Abstract_QueueRunner->run_cleanup, ActionScheduler_QueueCleaner->clean, ActionScheduler_QueueCleaner->reset_timeouts, ActionScheduler_DBStore->query_actions
+[14-Dec-2024 15:45:47 UTC] WordPress database error Table 'alaminrobin_wp271.wp3y_actionscheduler_actions' doesn't exist for query SELECT a.action_id FROM wp3y_actionscheduler_actions a WHERE 1=1 AND a.status IN ('in-progress') AND a.last_attempt_gmt <= '2024-12-14 15:40:47' LIMIT 0, 20 made by do_action_ref_array('action_scheduler_run_queue'), WP_Hook->do_action, WP_Hook->apply_filters, ActionScheduler_QueueRunner->run, ActionScheduler_Abstract_QueueRunner->run_cleanup, ActionScheduler_QueueCleaner->clean, ActionScheduler_QueueCleaner->mark_failures, ActionScheduler_DBStore->query_actions
+[14-Dec-2024 15:45:47 UTC] WordPress database error Table 'alaminrobin_wp271.wp3y_actionscheduler_actions' doesn't exist for query SELECT COUNT(DISTINCT claim_id) FROM wp3y_actionscheduler_actions WHERE claim_id != 0 AND status IN ( 'pending', 'in-progress') made by do_action_ref_array('action_scheduler_run_queue'), WP_Hook->do_action, WP_Hook->apply_filters, ActionScheduler_QueueRunner->run, ActionScheduler_Abstract_QueueRunner->has_maximum_concurrent_batches, ActionScheduler_DBStore->get_claim_count
+[14-Dec-2024 15:45:47 UTC] WordPress database error Table 'alaminrobin_wp271.wp3y_actionscheduler_claims' doesn't exist for query SHOW FULL COLUMNS FROM `wp3y_actionscheduler_claims` made by do_action_ref_array('action_scheduler_run_queue'), WP_Hook->do_action, WP_Hook->apply_filters, ActionScheduler_QueueRunner->run, ActionScheduler_QueueRunner->do_batch, ActionScheduler_DBStore->stake_claim, ActionScheduler_DBStore->generate_claim_id
+[14-Dec-2024 15:45:47 UTC] WordPress database error Table 'alaminrobin_wp271.wp3y_actionscheduler_actions' doesn't exist for query UPDATE wp3y_actionscheduler_actions SET claim_id=0, last_attempt_gmt='2024-12-14 15:45:47', last_attempt_local='2024-12-14 15:45:47' WHERE claim_id = 0 AND scheduled_date_gmt <= '2024-12-14 15:45:47' AND status='pending' ORDER BY priority ASC, attempts ASC, scheduled_date_gmt ASC, action_id ASC LIMIT 25 made by do_action_ref_array('action_scheduler_run_queue'), WP_Hook->do_action, WP_Hook->apply_filters, ActionScheduler_QueueRunner->run, ActionScheduler_QueueRunner->do_batch, ActionScheduler_DBStore->stake_claim, ActionScheduler_DBStore->claim_actions
+[14-Dec-2024 15:45:47 UTC] PHP Fatal error:  Uncaught RuntimeException: Unable to claim actions. Database error: Table 'alaminrobin_wp271.wp3y_actionscheduler_actions' doesn't exist. in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/packages/action-scheduler/classes/data-stores/ActionScheduler_DBStore.php:945
+Stack trace:
+#0 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/packages/action-scheduler/classes/data-stores/ActionScheduler_DBStore.php(802): ActionScheduler_DBStore->claim_actions()
+#1 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/packages/action-scheduler/classes/ActionScheduler_QueueRunner.php(161): ActionScheduler_DBStore->stake_claim()
+#2 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/packages/action-scheduler/classes/ActionScheduler_QueueRunner.php(140): ActionScheduler_QueueRunner->do_batch()
+#3 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(324): ActionScheduler_QueueRunner->run()
+#4 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#5 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/plugin.php(565): WP_Hook->do_action()
+#6 /home/alaminrobin/dinapoli.alaminrobin.com/wp-cron.php(191): do_action_ref_array()
+#7 {main}
+  thrown in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/packages/action-scheduler/classes/data-stores/ActionScheduler_DBStore.php on line 945
+[14-Dec-2024 16:25:57 UTC] PHP Fatal error:  Uncaught Error: Class "Woo_Variation_Swatches_Cache" not found in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-functions.php:81
+Stack trace:
+#0 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/merlin/includes/class-wc-widget-layered-nav.php(329): wvs_get_wc_attribute_taxonomy()
+#1 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/merlin/includes/class-wc-widget-layered-nav.php(145): Poco_Widget_Layered_Nav->layered_nav_list()
+#2 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-widget.php(394): Poco_Widget_Layered_Nav->widget()
+#3 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/widgets.php(845): WP_Widget->display_callback()
+#4 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/sidebar.php(9): dynamic_sidebar()
+#5 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template.php(810): require_once('/home/alaminrob...')
+#6 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template.php(745): load_template()
+#7 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/general-template.php(136): locate_template()
+#8 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/template-functions.php(709): get_sidebar()
+#9 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(324): poco_get_sidebar()
+#10 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#11 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#12 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-template-functions.php(35): do_action()
+#13 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(324): poco_after_content()
+#14 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#15 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#16 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/templates/archive-product.php(88): do_action()
+#17 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template-loader.php(106): include('/home/alaminrob...')
+#18 /home/alaminrobin/dinapoli.alaminrobin.com/wp-blog-header.php(19): require_once('/home/alaminrob...')
+#19 /home/alaminrobin/dinapoli.alaminrobin.com/index.php(17): require('/home/alaminrob...')
+#20 {main}
+  thrown in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-functions.php on line 81
+[14-Dec-2024 16:26:31 UTC] PHP Fatal error:  Uncaught Error: Class "Woo_Variation_Swatches_Cache" not found in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-functions.php:81
+Stack trace:
+#0 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/merlin/includes/class-wc-widget-layered-nav.php(329): wvs_get_wc_attribute_taxonomy()
+#1 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/merlin/includes/class-wc-widget-layered-nav.php(145): Poco_Widget_Layered_Nav->layered_nav_list()
+#2 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-widget.php(394): Poco_Widget_Layered_Nav->widget()
+#3 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/widgets.php(845): WP_Widget->display_callback()
+#4 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/sidebar.php(9): dynamic_sidebar()
+#5 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template.php(810): require_once('/home/alaminrob...')
+#6 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template.php(745): load_template()
+#7 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/general-template.php(136): locate_template()
+#8 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/template-functions.php(709): get_sidebar()
+#9 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(324): poco_get_sidebar()
+#10 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#11 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#12 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-template-functions.php(35): do_action()
+#13 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(324): poco_after_content()
+#14 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#15 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#16 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/templates/archive-product.php(88): do_action()
+#17 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template-loader.php(106): include('/home/alaminrob...')
+#18 /home/alaminrobin/dinapoli.alaminrobin.com/wp-blog-header.php(19): require_once('/home/alaminrob...')
+#19 /home/alaminrobin/dinapoli.alaminrobin.com/index.php(17): require('/home/alaminrob...')
+#20 {main}
+  thrown in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-functions.php on line 81
+[14-Dec-2024 16:27:18 UTC] PHP Fatal error:  Uncaught Error: Class "Woo_Variation_Swatches_Cache" not found in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-functions.php:81
+Stack trace:
+#0 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/merlin/includes/class-wc-widget-layered-nav.php(329): wvs_get_wc_attribute_taxonomy()
+#1 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/merlin/includes/class-wc-widget-layered-nav.php(145): Poco_Widget_Layered_Nav->layered_nav_list()
+#2 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-widget.php(394): Poco_Widget_Layered_Nav->widget()
+#3 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/widgets.php(845): WP_Widget->display_callback()
+#4 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/sidebar.php(9): dynamic_sidebar()
+#5 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template.php(810): require_once('/home/alaminrob...')
+#6 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template.php(745): load_template()
+#7 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/general-template.php(136): locate_template()
+#8 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/template-functions.php(709): get_sidebar()
+#9 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(324): poco_get_sidebar()
+#10 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#11 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#12 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-template-functions.php(35): do_action()
+#13 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(324): poco_after_content()
+#14 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#15 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#16 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/templates/archive-product.php(88): do_action()
+#17 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template-loader.php(106): include('/home/alaminrob...')
+#18 /home/alaminrobin/dinapoli.alaminrobin.com/wp-blog-header.php(19): require_once('/home/alaminrob...')
+#19 /home/alaminrobin/dinapoli.alaminrobin.com/index.php(17): require('/home/alaminrob...')
+#20 {main}
+  thrown in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-functions.php on line 81
+[14-Dec-2024 16:28:15 UTC] PHP Fatal error:  Uncaught Error: Class "Woo_Variation_Swatches_Cache" not found in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-functions.php:81
+Stack trace:
+#0 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/merlin/includes/class-wc-widget-layered-nav.php(329): wvs_get_wc_attribute_taxonomy()
+#1 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/merlin/includes/class-wc-widget-layered-nav.php(145): Poco_Widget_Layered_Nav->layered_nav_list()
+#2 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-widget.php(394): Poco_Widget_Layered_Nav->widget()
+#3 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/widgets.php(845): WP_Widget->display_callback()
+#4 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/sidebar.php(9): dynamic_sidebar()
+#5 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template.php(810): require_once('/home/alaminrob...')
+#6 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template.php(745): load_template()
+#7 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/general-template.php(136): locate_template()
+#8 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/template-functions.php(709): get_sidebar()
+#9 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(324): poco_get_sidebar()
+#10 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#11 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#12 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-template-functions.php(35): do_action()
+#13 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(324): poco_after_content()
+#14 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#15 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#16 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/templates/archive-product.php(88): do_action()
+#17 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template-loader.php(106): include('/home/alaminrob...')
+#18 /home/alaminrobin/dinapoli.alaminrobin.com/wp-blog-header.php(19): require_once('/home/alaminrob...')
+#19 /home/alaminrobin/dinapoli.alaminrobin.com/index.php(17): require('/home/alaminrob...')
+#20 {main}
+  thrown in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-functions.php on line 81
+[14-Dec-2024 21:07:05 UTC] PHP Fatal error:  Uncaught Error: Class "Woo_Variation_Swatches_Cache" not found in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-functions.php:81
+Stack trace:
+#0 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/merlin/includes/class-wc-widget-layered-nav.php(329): wvs_get_wc_attribute_taxonomy()
+#1 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/merlin/includes/class-wc-widget-layered-nav.php(145): Poco_Widget_Layered_Nav->layered_nav_list()
+#2 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-widget.php(394): Poco_Widget_Layered_Nav->widget()
+#3 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/widgets.php(845): WP_Widget->display_callback()
+#4 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/sidebar.php(9): dynamic_sidebar()
+#5 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template.php(810): require_once('/home/alaminrob...')
+#6 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template.php(745): load_template()
+#7 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/general-template.php(136): locate_template()
+#8 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/template-functions.php(709): get_sidebar()
+#9 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(324): poco_get_sidebar()
+#10 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#11 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#12 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-template-functions.php(35): do_action()
+#13 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(324): poco_after_content()
+#14 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#15 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/plugin.php(517): WP_Hook->do_action()
+#16 /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/templates/archive-product.php(88): do_action()
+#17 /home/alaminrobin/dinapoli.alaminrobin.com/wp-includes/template-loader.php(106): include('/home/alaminrob...')
+#18 /home/alaminrobin/dinapoli.alaminrobin.com/wp-blog-header.php(19): require_once('/home/alaminrob...')
+#19 /home/alaminrobin/dinapoli.alaminrobin.com/index.php(17): require('/home/alaminrob...')
+#20 {main}
+  thrown in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/themes/poco/inc/woocommerce/woocommerce-functions.php on line 81
+[14-Dec-2024 21:36:53 UTC] PHP Warning:  Attempt to read property "post_count" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/widgets/class-wc-widget-price-filter.php on line 80
+[14-Dec-2024 21:36:53 UTC] PHP Warning:  Attempt to read property "query_vars" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/class-wc-query.php on line 873
+[14-Dec-2024 21:36:53 UTC] PHP Warning:  Attempt to read property "query_vars" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/class-wc-query.php on line 885
+[14-Dec-2024 21:37:05 UTC] PHP Warning:  Attempt to read property "post_count" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/widgets/class-wc-widget-price-filter.php on line 80
+[14-Dec-2024 21:37:05 UTC] PHP Warning:  Attempt to read property "query_vars" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/class-wc-query.php on line 873
+[14-Dec-2024 21:37:05 UTC] PHP Warning:  Attempt to read property "query_vars" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/class-wc-query.php on line 885
+[14-Dec-2024 21:37:34 UTC] PHP Warning:  Attempt to read property "post_count" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/widgets/class-wc-widget-price-filter.php on line 80
+[14-Dec-2024 21:37:34 UTC] PHP Warning:  Attempt to read property "query_vars" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/class-wc-query.php on line 873
+[14-Dec-2024 21:37:34 UTC] PHP Warning:  Attempt to read property "query_vars" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/class-wc-query.php on line 885
+[14-Dec-2024 21:37:44 UTC] PHP Warning:  Attempt to read property "post_count" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/widgets/class-wc-widget-price-filter.php on line 80
+[14-Dec-2024 21:37:44 UTC] PHP Warning:  Attempt to read property "query_vars" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/class-wc-query.php on line 873
+[14-Dec-2024 21:37:44 UTC] PHP Warning:  Attempt to read property "query_vars" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/class-wc-query.php on line 885
+[14-Dec-2024 21:38:11 UTC] PHP Warning:  Attempt to read property "post_count" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/widgets/class-wc-widget-price-filter.php on line 80
+[14-Dec-2024 21:38:11 UTC] PHP Warning:  Attempt to read property "query_vars" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/class-wc-query.php on line 873
+[14-Dec-2024 21:38:11 UTC] PHP Warning:  Attempt to read property "query_vars" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/class-wc-query.php on line 885
+[14-Dec-2024 21:38:58 UTC] PHP Warning:  Attempt to read property "post_count" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/widgets/class-wc-widget-price-filter.php on line 80
+[14-Dec-2024 21:40:54 UTC] PHP Warning:  Attempt to read property "post_count" on null in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/woocommerce/includes/widgets/class-wc-widget-price-filter.php on line 80
+[16-Dec-2024 20:33:41 UTC] Cron reschedule event error for hook: elementor_1_elementor_updater_cron, Error code: invalid_schedule, Error message: Event schedule does not exist., Data: {"schedule":"elementor_1_elementor_updater_cron_interval","args":[],"interval":300}
+[18-Dec-2024 20:46:17 UTC] PHP Warning:  Undefined array key "default_lang" in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/polylang/include/language-factory.php on line 81
+[18-Dec-2024 20:46:17 UTC] PHP Warning:  Undefined array key "default_lang" in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/polylang/include/links-directory.php on line 139
+[18-Dec-2024 20:46:17 UTC] PHP Warning:  Undefined array key "default_lang" in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/polylang/include/links-directory.php on line 139
+[22-Dec-2024 06:48:51 UTC] PHP Warning:  Undefined array key "SERVER_NAME" in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/order-hours-scheduler-for-woocommerce/includes/Aspect/Page.php on line 110
+[22-Dec-2024 06:48:53 UTC] PHP Warning:  Undefined array key "SERVER_NAME" in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/order-hours-scheduler-for-woocommerce/includes/Aspect/Page.php on line 110
+[22-Dec-2024 06:48:57 UTC] PHP Warning:  Undefined array key "SERVER_NAME" in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/order-hours-scheduler-for-woocommerce/includes/Aspect/Page.php on line 110
+[22-Dec-2024 06:48:58 UTC] PHP Warning:  Undefined array key "SERVER_NAME" in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/order-hours-scheduler-for-woocommerce/includes/Aspect/Page.php on line 110
+[22-Dec-2024 06:49:00 UTC] PHP Warning:  Undefined array key "SERVER_NAME" in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/order-hours-scheduler-for-woocommerce/includes/Aspect/Page.php on line 110
+[28-May-2025 21:43:30 UTC] PHP Warning:  Constant PASSWORD_DEFAULT already defined in /home/alaminrobin/dinapoli.alaminrobin.com/update_pass.php on line 17
+[04-Jun-2025 23:19:06 UTC] Cron reschedule event error for hook: action_scheduler_run_queue, Error code: invalid_schedule, Error message: Event schedule does not exist., Data: {"schedule":"every_minute","args":["WP Cron"],"interval":60}
+[04-Jun-2025 23:19:06 UTC] Cron reschedule event error for hook: litespeed_task_imgoptm_pull, Error code: invalid_schedule, Error message: Event schedule does not exist., Data: {"schedule":"litespeed_filter","args":[],"interval":60}
+[04-Jun-2025 23:19:06 UTC] Cron reschedule event error for hook: litespeed_task_lqip, Error code: invalid_schedule, Error message: Event schedule does not exist., Data: {"schedule":"litespeed_filter","args":[],"interval":60}
+[04-Jun-2025 23:19:09 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 10485760 bytes) in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/elementor-pro/modules/forms/widgets/form.php on line 553
+[04-Jun-2025 23:19:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 10485760 bytes) in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/elementor-pro/modules/forms/widgets/form.php on line 724
+[04-Jun-2025 23:19:11 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 10485760 bytes) in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/elementor-pro/modules/forms/widgets/form.php on line 818
+[04-Jun-2025 23:20:15 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 10485760 bytes) in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/elementor-pro/base/base-carousel-trait.php on line 179
+[04-Jun-2025 23:20:18 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 10485760 bytes) in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/elementor-pro/modules/forms/widgets/form.php on line 664
+[04-Jun-2025 23:22:28 UTC] Cron reschedule event error for hook: elementor_1_elementor_updater_cron, Error code: invalid_schedule, Error message: Event schedule does not exist., Data: {"schedule":"elementor_1_elementor_updater_cron_interval","args":[],"interval":300}
+[04-Jun-2025 23:24:18 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 10485760 bytes) in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/unlimited-elements-for-elementor/provider/core/unlimited_elements/elementor/elementor_widget.class.php on line 2030
+[04-Jun-2025 23:26:46 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 131072 bytes) in /home/alaminrobin/dinapoli.alaminrobin.com/wp-content/plugins/elementor-pro/modules/call-to-action/widgets/call-to-action.php on line 1190
