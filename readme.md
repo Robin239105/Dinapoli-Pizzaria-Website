@@ -60,6 +60,6 @@ README.md
 
 
 👤 Author
-Robin Alamin
+Al Amin Robin
 Frontend & WordPress Developer
 🌐 alaminrobin.com
